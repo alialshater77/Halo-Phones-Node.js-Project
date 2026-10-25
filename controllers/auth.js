@@ -313,7 +313,7 @@ exports.postReset = (req, res, next) => {
             console.log(err);
             const detail = String(err && err.message || '');
             const errorMessage = /timeout|ETIMEDOUT|ECONNREFUSED/i.test(detail)
-              ? 'Render cannot reach Gmail. Add RESEND_API_KEY in the Render environment and redeploy.'
+              ? 'Render’s free plan blocks Gmail. Upgrade this service to a paid instance, then send the reset again.'
               : 'The reset email could not be sent. ' + detail.replace(/\s+/g, ' ').slice(0, 240);
             return res.status(502).render('auth/reset', {
               path: '/reset',
