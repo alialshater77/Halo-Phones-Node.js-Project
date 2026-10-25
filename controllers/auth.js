@@ -1,10 +1,10 @@
 const crypto = require('crypto');
 
 const bcrypt = require('bcryptjs');
-const nodemailer = require('nodemailer');
 const { validationResult } = require('express-validator');
 
 const User = require('../models/user');
+const { sendMail } = require('../util/mail');
 
 function readMailEnv(name) {
   if (process.env[name]) {
@@ -19,7 +19,6 @@ function readMailEnv(name) {
 }
 
 const mailUser = readMailEnv('MAIL_USER');
-const mailPass = readMailEnv('MAIL_PASS').replace(/\s+/g, '');
 const appUrl = readMailEnv('APP_URL') || 'http://localhost:3000';
 
 function hashToken(token) {
@@ -29,15 +28,6 @@ function hashToken(token) {
 function isProtectedAdmin(email) {
   return String(email || '').trim().toLowerCase() === 'admin@admin.com';
 }
-
-const transporter = nodemailer.createTransport({
-  host: 'smtp.gmail.com',
-  port: 587,
-  auth: {
-    user: mailUser,
-    pass: mailPass
-  }
-});
 
 exports.getLogin = (req, res, next) => {
   let message = req.flash('error');
@@ -280,8 +270,8 @@ exports.postReset = (req, res, next) => {
         if (!resetUser || res.headersSent) {
           return;
         }
-        if (!mailUser || !mailPass) {
-          console.log('Password reset email was not sent. MAIL_USER or MAIL_PASS is missing.');
+        if (!mailUser) {
+          console.log('Password reset email was not sent. MAIL_USER is missing.');
           return res.status(500).render('auth/reset', {
             path: '/reset',
             pageTitle: 'Reset Password',
@@ -291,10 +281,8 @@ exports.postReset = (req, res, next) => {
             validationErrors: []
           });
         }
-        return transporter
-          .sendMail({
+        return sendMail({
             to: email,
-            from: mailUser,
             subject: 'Reset your Halo Phones password',
             html: `
             <div style="margin:0;padding:32px 12px;background:#f3ecdf;">
@@ -310,13 +298,24 @@ exports.postReset = (req, res, next) => {
               </div>
             </div>
           `
-          })
+        })
           .then(() => {
             res.render('auth/reset', {
               path: '/reset',
               pageTitle: 'Reset Password',
               errorMessage: null,
               successMessage: 'The email was sent. Check your inbox for the reset link.',
+              oldInput: { email: email },
+              validationErrors: []
+            });
+          })
+          .catch(err => {
+            console.log(err);
+            return res.status(502).render('auth/reset', {
+              path: '/reset',
+              pageTitle: 'Reset Password',
+              errorMessage: 'The reset email could not be sent. Try again later.',
+              successMessage: null,
               oldInput: { email: email },
               validationErrors: []
             });

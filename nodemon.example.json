@@ -8,6 +8,8 @@
     "APP_URL": "http://localhost:3000",
     "MAIL_USER": "",
     "MAIL_PASS": "",
+    "BREVO_API_KEY": "",
+    "RESEND_API_KEY": "",
     "ADMIN_EMAIL": "",
     "SESSION_SECRET": "",
     "REDIS_URL": "redis://127.0.0.1:6379"
