@@ -311,10 +311,14 @@ exports.postReset = (req, res, next) => {
           })
           .catch(err => {
             console.log(err);
+            const detail = String(err && err.message || '');
+            const errorMessage = /timeout|ETIMEDOUT|ECONNREFUSED/i.test(detail)
+              ? 'Render cannot reach Gmail. Add RESEND_API_KEY in the Render environment and redeploy.'
+              : 'The reset email could not be sent. ' + detail.replace(/\s+/g, ' ').slice(0, 240);
             return res.status(502).render('auth/reset', {
               path: '/reset',
               pageTitle: 'Reset Password',
-              errorMessage: 'The reset email could not be sent. Try again later.',
+              errorMessage: errorMessage,
               successMessage: null,
               oldInput: { email: email },
               validationErrors: []
