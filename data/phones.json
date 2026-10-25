@@ -1,0 +1,202 @@
+[
+  {
+    "title": "Apple iPhone 16",
+    "price": 799,
+    "description": "6.1-inch OLED display, A18 chip, 48MP main camera, USB-C, and the Action button. The compact 2024 iPhone, sold from 128GB.",
+    "imageUrl": "images/iphone-16.jpg",
+    "stock": 14,
+    "userId": {
+      "$oid": "6ade2679850721146b291e9f"
+    }
+  },
+  {
+    "title": "Apple iPhone 16 Plus",
+    "price": 899,
+    "description": "6.7-inch OLED display, A18 chip, and a larger battery than the iPhone 16. 48MP camera, USB-C, and a brighter screen for outdoor use.",
+    "imageUrl": "images/iphone-16-plus.jpg",
+    "stock": 9,
+    "userId": {
+      "$oid": "6ade2679850721146b291e9f"
+    }
+  },
+  {
+    "title": "Apple iPhone 16 Pro",
+    "price": 999,
+    "description": "6.3-inch ProMotion display, A18 Pro chip, titanium frame, and a 48MP camera with 5x tetraprism zoom. Camera Control sits on the side.",
+    "imageUrl": "images/iphone-16-pro.jpg",
+    "stock": 11,
+    "userId": {
+      "$oid": "6ade2679850721146b291e9f"
+    }
+  },
+  {
+    "title": "Apple iPhone 16 Pro Max",
+    "price": 1199,
+    "description": "6.9-inch ProMotion OLED, A18 Pro, titanium design, and the longest battery in the iPhone 16 line. 48MP camera with 5x optical-range zoom.",
+    "imageUrl": "images/iphone-16-pro-max.jpg",
+    "stock": 7,
+    "userId": {
+      "$oid": "6ade2679850721146b291e9f"
+    }
+  },
+  {
+    "title": "Apple iPhone 15",
+    "price": 699,
+    "description": "6.1-inch Super Retina XDR display, A16 chip, Dynamic Island, and a 48MP main camera. USB-C replaced the Lightning port on this 2023 model.",
+    "imageUrl": "images/iphone-15.jpg",
+    "stock": 12,
+    "userId": {
+      "$oid": "6ade2679850721146b291e9f"
+    }
+  },
+  {
+    "title": "Samsung Galaxy S24",
+    "price": 799,
+    "description": "6.2-inch Dynamic AMOLED, Galaxy AI tools, and a 50MP main camera. The compact 2024 Galaxy flagship, with seven years of OS updates promised by Samsung.",
+    "imageUrl": "images/galaxy-s24.jpg",
+    "stock": 16,
+    "userId": {
+      "$oid": "6ade2679850721146b291e9f"
+    }
+  },
+  {
+    "title": "Samsung Galaxy S24 Ultra",
+    "price": 1299,
+    "description": "6.8-inch QHD display, built-in S Pen, titanium frame, and a 200MP main camera. The Ultra adds a 5x optical zoom and the brightest Galaxy S24 screen.",
+    "imageUrl": "images/galaxy-s24-ultra.jpg",
+    "stock": 8,
+    "userId": {
+      "$oid": "6ade2679850721146b291e9f"
+    }
+  },
+  {
+    "title": "Samsung Galaxy Z Fold6",
+    "price": 1899,
+    "description": "Book-style foldable with a 7.6-inch inner display and a 6.3-inch cover screen. Slimmer than the Fold5, with a 50MP camera and desktop-style multitasking.",
+    "imageUrl": "images/galaxy-z-fold6.jpg",
+    "stock": 4,
+    "userId": {
+      "$oid": "6ade2679850721146b291e9f"
+    }
+  },
+  {
+    "title": "Google Pixel 9 Pro XL",
+    "price": 1099,
+    "description": "6.8-inch Super Actua display, Tensor G4, and a triple camera with 5x telephoto. The largest Pixel 9, with Gemini features and a seven-year update promise.",
+    "imageUrl": "images/pixel-9-pro-xl.jpg",
+    "stock": 7,
+    "userId": {
+      "$oid": "6ade2679850721146b291e9f"
+    }
+  },
+  {
+    "title": "Google Pixel 8a",
+    "price": 499,
+    "description": "6.1-inch 120Hz OLED, Tensor G3, and a 64MP main camera. The cheaper Pixel still gets the same seven-year update promise and strong night photos.",
+    "imageUrl": "images/pixel-8a.jpg",
+    "stock": 18,
+    "userId": {
+      "$oid": "6ade2679850721146b291e9f"
+    }
+  },
+  {
+    "title": "Xiaomi 14",
+    "price": 799,
+    "description": "6.36-inch LTPO OLED, Snapdragon 8 Gen 3, and Leica-tuned 50MP cameras. A compact 2024 flagship with 90W charging. Model number 23116PN5BC.",
+    "imageUrl": "images/xiaomi-14.jpg",
+    "stock": 12,
+    "userId": {
+      "$oid": "6ade2679850721146b291e9f"
+    }
+  },
+  {
+    "title": "Nothing Phone (2)",
+    "price": 599,
+    "description": "6.7-inch OLED, Snapdragon 8+ Gen 1, and the Glyph light interface on the transparent back. Nothing OS stays close to a clean Android install.",
+    "imageUrl": "images/nothing-phone-2.jpg",
+    "stock": 15,
+    "userId": {
+      "$oid": "6ade2679850721146b291e9f"
+    }
+  },
+  {
+    "title": "Nothing Phone (1)",
+    "price": 399,
+    "description": "6.55-inch OLED, Snapdragon 778G+, and the first Glyph light interface. A transparent-back Nothing phone with a 50MP main camera.",
+    "imageUrl": "images/nothing-phone-1.jpg",
+    "stock": 10,
+    "userId": {
+      "$oid": "6ade2679850721146b291e9f"
+    }
+  },
+  {
+    "title": "Fairphone 5",
+    "price": 699,
+    "description": "6.46-inch OLED phone designed to be opened and repaired at home. 50MP camera, a user-replaceable battery, and a long software-support promise.",
+    "imageUrl": "images/fairphone-5.jpg",
+    "stock": 9,
+    "userId": {
+      "$oid": "6ade2679850721146b291e9f"
+    }
+  },
+  {
+    "title": "Motorola Edge 50 Neo",
+    "price": 449,
+    "description": "6.4-inch pOLED display, Dimensity 7300 chip, and a 50MP camera. A smaller Edge with IP68 protection and fast charging.",
+    "imageUrl": "images/moto-edge-50-neo.jpg",
+    "stock": 13,
+    "userId": {
+      "$oid": "6ade2679850721146b291e9f"
+    }
+  },
+  {
+    "title": "Samsung Galaxy A55",
+    "price": 449,
+    "description": "6.6-inch Super AMOLED, 50MP camera, and a metal frame. A midrange Galaxy with stereo speakers and several years of security updates.",
+    "imageUrl": "images/galaxy-a55.jpg",
+    "stock": 20,
+    "userId": {
+      "$oid": "6ade2679850721146b291e9f"
+    }
+  },
+  {
+    "title": "ASUS ROG Phone 8 Pro",
+    "price": 1199,
+    "description": "6.78-inch 165Hz AMOLED, Snapdragon 8 Gen 3, and a vapor-chamber cooling system. The Pro edition is built for long game sessions.",
+    "imageUrl": "images/rog-phone-8-pro.jpg",
+    "stock": 6,
+    "userId": {
+      "$oid": "6ade2679850721146b291e9f"
+    }
+  },
+  {
+    "title": "CMF Phone 1",
+    "price": 239,
+    "description": "6.67-inch 120Hz AMOLED from Nothing’s CMF brand. MediaTek Dimensity 7300, a 50MP camera, and a screw-on back for accessory plates.",
+    "imageUrl": "images/cmf-phone-1.jpg",
+    "stock": 22,
+    "userId": {
+      "$oid": "6ade2679850721146b291e9f"
+    }
+  },
+  {
+    "title": "Samsung Galaxy Z Flip6",
+    "price": 1099,
+    "description": "Clamshell foldable with a 6.7-inch inner AMOLED and a 3.4-inch cover screen. It folds flat, runs Galaxy AI, and fits into a small pocket.",
+    "imageUrl": "images/galaxy-z-flip6.jpg",
+    "stock": 6,
+    "userId": {
+      "$oid": "6ade2679850721146b291e9f"
+    }
+  },
+  {
+    "title": "Sony Xperia 1 VI",
+    "price": 1399,
+    "stock": 5,
+    "description": "6.5-inch OLED that can run at 120Hz, Snapdragon 8 Gen 3, and a true optical zoom camera. Built for manual photo and video controls.",
+    "imageUrl": "images/xperia-1-vi.jpg",
+    "userId": {
+      "$oid": "6ade2679850721146b291e9f"
+    }
+  }
+]

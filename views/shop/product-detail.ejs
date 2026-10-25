@@ -1,0 +1,29 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/product.css">
+    </head>
+
+    <body>
+        <%- include('../includes/navigation.ejs') %>
+        <main>
+            <article class="detail">
+                <div class="image">
+                    <img src="/<%= product.imageUrl %>" alt="<%= product.title %>">
+                </div>
+                <div class="detail__copy">
+                    <p class="eyebrow">Phone</p>
+                    <h1><%= product.title %></h1>
+                    <h2 class="price">$<%= product.price %></h2>
+                    <% if (typeof product.stock === 'number') { %>
+                        <p class="stock <%= product.stock < 1 ? 'stock--out' : '' %>"><%= product.stock < 1 ? 'Sold out' : product.stock + ' in stock' %></p>
+                    <% } %>
+                    <% if (errorMessage) { %>
+                        <p class="stock stock--out"><%= errorMessage %></p>
+                    <% } %>
+                    <p class="detail__description"><%= product.description %></p>
+                    <% if (isAuthenticated) { %>
+                        <%- include('../includes/add-to-cart.ejs', {product: product}) %>
+                    <% } %>
+                </div>
+            </article>
+        </main>
+        <%- include('../includes/end.ejs') %>

@@ -1,0 +1,39 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/forms.css">
+    <link rel="stylesheet" href="/css/auth.css">
+</head>
+
+<body>
+   <%- include('../includes/navigation.ejs') %>
+
+    <main class="auth-page">
+        <section class="auth-copy">
+            <p class="eyebrow">Password</p>
+            <h1>Send a reset link.</h1>
+            <p>Use the email on your Halo account. The link expires in one hour.</p>
+        </section>
+        <section>
+        <% if (successMessage) { %>
+            <div class="user-message user-message--success"><%= successMessage %></div>
+        <% } %>
+        <% if (errorMessage) { %>
+            <div class="user-message user-message--error"><%= errorMessage %></div>
+        <% } %>
+        <form class="login-form" action="/reset" method="POST">
+            <div class="form-control">
+                <label for="email">E-Mail</label>
+                <input
+                    class="<%= validationErrors.find(e => (e.path || e.param) === 'email') ? 'invalid' : '' %>"
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="you@example.com"
+                    value="<%= oldInput.email %>"
+                    required>
+            </div>
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <button class="btn" type="submit">Reset Password</button>
+        </form>
+        </section>
+    </main>
+<%- include('../includes/end.ejs') %>

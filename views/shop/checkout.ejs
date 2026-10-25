@@ -1,0 +1,42 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/cart.css">
+    </head>
+
+    <body>
+        <%- include('../includes/navigation.ejs') %>
+        <main>
+            <section class="page-intro">
+                <p class="eyebrow">Checkout</p>
+                <h1>Pay for this order.</h1>
+                <p>The order is saved after Stripe confirms the payment. The test card is 4242 4242 4242 4242.</p>
+            </section>
+            <ul class="cart__item-list">
+                <% products.forEach(p => { %>
+                    <% if (p.productId) { %>
+                    <li class="cart__item">
+                        <h1><%= p.productId.title %></h1>
+                        <h2>Quantity: <%= p.quantity %></h2>
+                    </li>
+                    <% } %>
+                <% }) %>
+            </ul>
+            <% if (errorMessage) { %>
+                <p class="pay-card__banner" role="alert"><%= errorMessage %></p>
+            <% } %>
+            <% if (clientSecret) { %>
+                <form id="payment-form" class="pay-card" data-secret="<%= clientSecret %>" data-key="<%= publishableKey %>" data-return-url="<%= returnUrl %>">
+                    <div class="pay-card__field">
+                        <label for="payment-element">Card</label>
+                        <div id="payment-element"></div>
+                        <p id="card-errors" class="pay-card__error" role="alert"></p>
+                    </div>
+                    <div class="summary">
+                        <h2>Total $<%= totalSum %></h2>
+                        <button class="btn" type="submit">Pay $<%= totalSum %></button>
+                    </div>
+                </form>
+                <script src="https://js.stripe.com/v3/"></script>
+                <script src="/js/checkout.js"></script>
+            <% } %>
+        </main>
+        <%- include('../includes/end.ejs') %>

@@ -1,0 +1,106 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/forms.css">
+    <link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+   <%- include('../includes/navigation.ejs') %>
+
+    <main>
+        <section class="page-intro">
+            <p class="eyebrow">Listing</p>
+            <h1><% if (editing) { %>Edit this phone<% } else { %>Add a phone<% } %></h1>
+            <p>Title, price in dollars, a short description, and one photo.</p>
+        </section>
+        <% if (errorMessage) { %>
+            <div class="user-message user-message--error"><%= errorMessage %></div>
+        <% } %>
+        <form class="product-form" action="/admin/<% if (editing) { %>edit-product<% } else { %>add-product<% } %>" method="POST" enctype="multipart/form-data">
+            <div class="form-control">
+                <label for="title">Title</label>
+                <input 
+                    class="<%= validationErrors.find(e => (e.path || e.param) === 'title') ? 'invalid' : '' %>"
+                    type="text" 
+                    name="title" 
+                    id="title" 
+                    placeholder="Phone name"
+                    minlength="3"
+                    value="<% if (editing || hasError) { %><%= product.title %><% } %>"
+                    required>
+            </div>
+            <!-- <div class="form-control">
+                <label for="imageUrl">Image URL</label>
+                <input 
+                    class="<%= validationErrors.find(e => (e.path || e.param) === 'imageUrl') ? 'invalid' : '' %>"
+                    type="text" 
+                    name="imageUrl" 
+                    id="imageUrl" 
+                    value="<% if (editing || hasError) { %><%= product.imageUrl %><% } %>">
+            </div> -->
+            <div class="form-control">
+                <label for="image">Image</label>
+                <% const savedImage = typeof product !== 'undefined' && product && product.imageUrl ? product.imageUrl : ''; %>
+                <div class="image-picker">
+                    <img
+                        id="image-preview"
+                        class="image-picker__preview<%= savedImage ? '' : ' image-picker__preview--empty' %>"
+                        alt="Phone photo"
+                        data-current="<%= savedImage ? '/' + savedImage : '' %>"
+                        <% if (savedImage) { %>src="/<%= savedImage %>"<% } %>>
+                    <input 
+                        type="file" 
+                        name="image" 
+                        id="image"
+                        accept="image/png,image/jpeg,image/webp,image/jpg"
+                        title="Choose a PNG or JPG or JPEG or WEBP"
+                        <% if (!editing) { %>required<% } %>>
+                </div>
+            </div>
+            <div class="form-control">
+                <label for="price">Price</label>
+                <input 
+                    class="<%= validationErrors.find(e => (e.path || e.param) === 'price') ? 'invalid' : '' %>"
+                    type="number" 
+                    name="price" 
+                    id="price" 
+                    placeholder="57.00"
+                    step="0.01" 
+                    min="0.01"
+                    value="<% if (editing || hasError) { %><%= product.price %><% } %>"
+                    required>
+            </div>
+            <div class="form-control">
+                <label for="stock">Stock</label>
+                <input
+                    class="<%= validationErrors.find(e => (e.path || e.param) === 'stock') ? 'invalid' : '' %>"
+                    type="number"
+                    name="stock"
+                    id="stock"
+                    placeholder="12"
+                    step="1"
+                    min="0"
+                    value="<% if ((editing || hasError) && product.stock != null && product.stock !== '') { %><%= product.stock %><% } %>"
+                    required>
+            </div>
+            <div class="form-control">
+                <label for="description">Description</label>
+                <textarea 
+                    class="<%= validationErrors.find(e => (e.path || e.param) === 'description') ? 'invalid' : '' %>"
+                    name="description" 
+                    id="description" 
+                    rows="5"
+                    placeholder="A short note about this phone"
+                    minlength="5"
+                    maxlength="400"
+                    required><% if (editing || hasError) { %><%= product.description %><% } %></textarea>
+            </div>
+            <% if (editing) { %>
+                <input type="hidden" value="<%= product._id %>" name="productId">
+            <% } %>
+
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <button class="btn" type="submit"><% if (editing) { %>Update Product<% } else { %>Add Product<% } %></button>
+        </form>
+        <script src="/js/product-form.js"></script>
+    </main>
+<%- include('../includes/end.ejs') %>

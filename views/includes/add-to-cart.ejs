@@ -1,0 +1,13 @@
+<form action="/cart" method="post">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+    <% if (typeof product.stock === 'number' && product.stock < 1) { %>
+        <p class="stock stock--out">Sold out</p>
+    <% } else { %>
+        <label class="qty">
+            <span>Qty</span>
+            <input type="number" name="quantity" min="1" <% if (typeof product.stock === 'number') { %>max="<%= product.stock %>"<% } %> value="1" required>
+        </label>
+        <button class="btn" type="submit">Add to Cart</button>
+    <% } %>
+    <input type="hidden" name="productId" value="<%= product._id %>">
+</form>

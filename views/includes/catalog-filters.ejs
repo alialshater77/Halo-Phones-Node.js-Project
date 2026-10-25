@@ -1,0 +1,15 @@
+<form class="catalog-filters" action="" method="GET">
+    <label>
+        <span>Name</span>
+        <input type="search" name="search" value="<%= filters.search %>" placeholder="Search phones">
+    </label>
+    <label>
+        <span>Min $</span>
+        <input type="number" name="minPrice" min="0" step="0.01" value="<%= filters.minPrice === null ? '' : filters.minPrice %>" placeholder="0">
+    </label>
+    <label>
+        <span>Max $</span>
+        <input type="number" name="maxPrice" min="0" step="0.01" value="<%= filters.maxPrice === null ? '' : filters.maxPrice %>" placeholder="500">
+    </label>
+    <button class="btn" type="submit">Filter</button>
+</form>

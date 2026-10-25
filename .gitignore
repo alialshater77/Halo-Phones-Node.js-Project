@@ -1,0 +1,10 @@
+node_modules
+server.cert
+server.key
+.env
+.env.*
+!.env.example
+nodemon.json
+access.log
+data/invoices
+*.log

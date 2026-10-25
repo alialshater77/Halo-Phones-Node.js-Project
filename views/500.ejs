@@ -1,0 +1,17 @@
+<%- include('includes/head.ejs') %>
+</head>
+
+<body>
+    <%- include('includes/navigation.ejs') %>
+    <main>
+        <section class="page-intro">
+            <p class="eyebrow">500</p>
+            <h1>Something slipped.</h1>
+            <p>We're working on fixing this, sorry for the inconvenience!</p>
+            <% if (typeof errorMessage !== 'undefined' && errorMessage) { %>
+                <p><%= errorMessage %></p>
+            <% } %>
+        </section>
+    </main>
+
+<%- include('includes/end.ejs') %>

@@ -1,0 +1,132 @@
+.user-message {
+  max-width: 460px;
+  margin: 0 auto 1rem;
+  padding: 0.8rem 1rem;
+  border-radius: 14px;
+  text-align: center;
+}
+
+.user-message--success {
+  background: #e5f0ea;
+  color: var(--pine);
+}
+
+.login-form,
+.product-form {
+  width: min(100%, 460px);
+  margin: 0 auto;
+  padding: 1.4rem;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+
+.product-form {
+  width: min(100%, 640px);
+}
+
+.form-control {
+  margin-bottom: 0.95rem;
+}
+
+.form-control label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.form-control input::placeholder,
+.form-control textarea::placeholder {
+  color: #8c8376;
+}
+
+.form-control input,
+.form-control textarea {
+  width: 100%;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+  color: var(--ink);
+}
+
+.form-control input:focus,
+.form-control textarea:focus {
+  outline: 2px solid rgba(198, 90, 46, 0.35);
+  border-color: var(--clay);
+}
+
+.form-control input[type="file"] {
+  padding: 0.65rem 0.75rem;
+  background: #fff;
+  cursor: pointer;
+}
+
+.image-picker {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.image-picker__preview {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: linear-gradient(160deg, #f7f1e7, #e7d8c2);
+}
+
+.image-picker__preview--empty {
+  display: none;
+}
+
+.form-control input.invalid,
+.form-control textarea.invalid {
+  border-color: var(--danger);
+  background: #fff6f4;
+}
+
+.login-form .btn,
+.product-form .btn {
+  width: 100%;
+  margin-top: 0.4rem;
+  background: var(--clay);
+}
+
+.product-form .btn:hover {
+  background: var(--clay-deep);
+}
+
+.login-form .btn {
+  min-height: 50px;
+  margin-top: 0.7rem;
+  background: var(--ink);
+  color: #f6f1e8;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  box-shadow: 0 12px 24px rgba(23, 20, 15, 0.18);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.login-form .btn:hover {
+  background: var(--pine);
+  transform: translateY(-1px);
+}
+
+.auth-page .user-message {
+  max-width: none;
+  margin: 0 0 1rem;
+}
+
+.auth-links {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.auth-links a {
+  color: var(--pine);
+  font-weight: 600;
+}

@@ -1,0 +1,36 @@
+.auth-page {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.auth-copy h1 {
+  margin: 0 0 0.6rem;
+  font-family: var(--display);
+  font-size: clamp(2.6rem, 5vw, 4.4rem);
+  letter-spacing: -0.045em;
+  line-height: 0.95;
+}
+
+.auth-copy p {
+  max-width: 28rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+.admin-hint {
+  margin-top: 1.2rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--paper-deep);
+  color: var(--ink);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 800px) {
+  .auth-page {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,15 @@
+<section class="pagination">
+    <% if (currentPage !== 1 && previousPage !== 1) { %>
+        <a href="?<%= filterQuery %><%= filterQuery ? '&' : '' %>page=1">1</a>
+    <% } %>
+    <% if (hasPreviousPage) { %>
+        <a href="?<%= filterQuery %><%= filterQuery ? '&' : '' %>page=<%= previousPage %>"><%= previousPage %></a>
+    <% } %>
+    <a href="?<%= filterQuery %><%= filterQuery ? '&' : '' %>page=<%= currentPage %>" class="active"><%= currentPage %></a>
+    <% if (hasNextPage) { %>
+        <a href="?<%= filterQuery %><%= filterQuery ? '&' : '' %>page=<%= nextPage %>"><%= nextPage %></a>
+    <% } %>
+    <% if (lastPage !== currentPage && nextPage !== lastPage) { %>
+        <a href="?<%= filterQuery %><%= filterQuery ? '&' : '' %>page=<%= lastPage %>"><%= lastPage %></a>
+    <% } %>
+</section>

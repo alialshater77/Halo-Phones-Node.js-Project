@@ -1,0 +1,63 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/orders.css">
+    </head>
+
+    <body>
+        <%- include('../includes/navigation.ejs') %>
+        <main>
+            <section class="page-intro">
+                <p class="eyebrow">Orders</p>
+                <h1>Phones you already claimed.</h1>
+            </section>
+            <% if (orders.length <= 0) { %>
+                <h1 class="empty-state">No orders yet.</h1>
+            <% } else { %>
+                <ul class="orders">
+                    <% orders.forEach(order => {
+                        const placed = order._id.getTimestamp();
+                        let orderTotal = 0;
+                        order.products.forEach(p => {
+                            orderTotal += p.quantity * Number(p.product.price);
+                        });
+                    %>
+                        <li class="orders__item">
+                            <header class="orders__head">
+                                <div>
+                                    <p class="orders__date">Placed <%= placed.toLocaleString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit' }) %></p>
+                                    <h1>Order #<%= order._id %></h1>
+                                    <p class="orders__email"><%= order.user.email %></p>
+                                    <% const paymentStatus = order.payment && order.payment.status ? order.payment.status : (order.payment && order.payment.paymentIntentId ? 'paid' : 'unverified'); %>
+                                    <p class="orders__status <%= paymentStatus === 'paid' ? '' : 'orders__status--open' %>"><%= paymentStatus %></p>
+                                </div>
+                                <a class="orders__invoice" href="/orders/<%= order._id %>">Invoice</a>
+                            </header>
+                            <ul class="orders__products">
+                                <% order.products.forEach(p => { %>
+                                    <li class="orders__products-item">
+                                        <% if (p.product.imageUrl) { %>
+                                            <img src="/<%= p.product.imageUrl %>" alt="<%= p.product.title %>">
+                                        <% } %>
+                                        <div class="orders__copy">
+                                            <h2><%= p.product.title %></h2>
+                                            <% if (p.product.description) { %>
+                                                <p><%= p.product.description %></p>
+                                            <% } %>
+                                        </div>
+                                        <div class="orders__figures">
+                                            <span>Qty <%= p.quantity %></span>
+                                            <span>$<%= Number(p.product.price).toFixed(2) %> each</span>
+                                            <strong>$<%= (p.quantity * Number(p.product.price)).toFixed(2) %></strong>
+                                        </div>
+                                    </li>
+                                <% }); %>
+                            </ul>
+                            <footer class="orders__total">
+                                <span><%= order.products.length %> item<%= order.products.length === 1 ? '' : 's' %></span>
+                                <strong>Total $<%= orderTotal.toFixed(2) %></strong>
+                            </footer>
+                        </li>
+                    <% }); %>
+                </ul>
+            <% } %>
+        </main>
+        <%- include('../includes/end.ejs') %>
